@@ -81,29 +81,6 @@ section h2 {
   margin-bottom: 30px;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  max-width: 700px;
-  margin: auto;
-}
-
-.product {
-  padding: 30px 10px;
-  border: 1px solid #eeeeee;
-}
-
-.product h3 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.product p {
-  color: #888;
-  font-size: 13px;
-}
-
 .price-list {
   display: flex;
   justify-content: space-between;
@@ -133,6 +110,98 @@ section h2 {
 
 .price-section h2 {
   margin-bottom: 45px;
+}
+
+/* КАТЕГОРИИ КАТАЛОГА */
+
+.catalog-list {
+  max-width: 700px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  text-align: left;
+}
+
+.catalog-item {
+  border: 1px solid #eeeeee;
+  background: white;
+  min-width: 0;
+}
+
+.catalog-item summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 145px;
+  padding: 25px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.catalog-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.catalog-item summary h3 {
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.catalog-item summary p {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.catalog-item summary .arrow {
+  color: #888;
+  margin-top: 12px;
+  transition: transform 0.2s;
+}
+
+.catalog-item[open] {
+  grid-column: 1 / -1;
+}
+
+.catalog-item[open] summary {
+  min-height: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.catalog-item[open] .arrow {
+  transform: rotate(180deg);
+}
+
+/* КАРТОЧКИ ДУХОВ */
+
+.perfume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px 10px;
+}
+
+.perfume-card {
+  min-width: 0;
+  text-align: center;
+}
+
+.perfume-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #f5f3f0;
+}
+
+.perfume-card h4 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 12px 0;
 }
 
 footer {
@@ -180,6 +249,14 @@ a {
     font-size: 13px;
     letter-spacing: 1px;
   }
+
+  .catalog-list {
+    gap: 10px;
+  }
+
+  .catalog-item summary h3 {
+    font-size: 15px;
+  }
 }
 </style>
 </head>
@@ -203,11 +280,13 @@ a {
     <button>СМОТРЕТЬ КАТАЛОГ</button>
   </a>
 </div>
+
 <section class="price-section">
 
   <h2>НАШ ПРАЙС</h2>
 
   <div class="price-list">
+
     <div class="price-column">
       <h3 class="price-category">Масла</h3>
       <p>10 мл — 5 000 ₸</p>
@@ -216,38 +295,120 @@ a {
     </div>
 
     <div class="price-column">
-      <h3 class="price-category">Оригинальная<br>парфюмерия</h3>
+      <h3 class="price-category">
+        Оригинальная<br>парфюмерия
+      </h3>
       <p>1 мл — 1 000 ₸</p>
     </div>
-  </div>
 
+  </div>
 </section>
 
 <section id="catalog">
 
   <h2>НАШ КАТАЛОГ</h2>
 
-  <div class="products">
+  <div class="catalog-list">
 
-    <div class="product">
-      <h3>Мужские ароматы</h3>
-      <p>Стиль и характер</p>
-    </div>
+    <!-- МУЖСКИЕ АРОМАТЫ -->
+    <details class="catalog-item">
+      <summary>
+        <h3>Мужские ароматы</h3>
+        <p>Стиль и характер</p>
+        <span class="arrow">⌄</span>
+      </summary>
 
-    <div class="product">
-      <h3>Женские ароматы</h3>
-      <p>Элегантность и нежность</p>
-    </div>
+      <div class="perfume-grid">
 
-    <div class="product">
-      <h3>Универсальные ароматы</h3>
-      <p>Для любого случая</p>
-    </div>
+        <div class="perfume-card">
+          <img src="images/mens-1.jpg"
+               alt="Мужской аромат 1" loading="lazy">
+          <h4>Название аромата 1</h4>
+        </div>
 
-    <div class="product">
-      <h3>Нишевые ароматы</h3>
-      <p>Особенный характер</p>
-    </div>
+        <div class="perfume-card">
+          <img src="images/mens-2.jpg"
+               alt="Мужской аромат 2" loading="lazy">
+          <h4>Название аромата 2</h4>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- ЖЕНСКИЕ АРОМАТЫ -->
+    <details class="catalog-item">
+      <summary>
+        <h3>Женские ароматы</h3>
+        <p>Элегантность и нежность</p>
+        <span class="arrow">⌄</span>
+      </summary>
+
+      <div class="perfume-grid">
+
+        <div class="perfume-card">
+          <img src="images/womens-1.jpg"
+               alt="Женский аромат 1" loading="lazy">
+          <h4>Название аромата 1</h4>
+        </div>
+
+        <div class="perfume-card">
+          <img src="images/womens-2.jpg"
+               alt="Женский аромат 2" loading="lazy">
+          <h4>Название аромата 2</h4>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- УНИВЕРСАЛЬНЫЕ АРОМАТЫ -->
+    <details class="catalog-item">
+      <summary>
+        <h3>Универсальные ароматы</h3>
+        <p>Для любого случая</p>
+        <span class="arrow">⌄</span>
+      </summary>
+
+      <div class="perfume-grid">
+
+        <div class="perfume-card">
+          <img src="images/unisex-1.jpg"
+               alt="Универсальный аромат 1" loading="lazy">
+          <h4>Название аромата 1</h4>
+        </div>
+
+        <div class="perfume-card">
+          <img src="images/unisex-2.jpg"
+               alt="Универсальный аромат 2" loading="lazy">
+          <h4>Название аромата 2</h4>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- НИШЕВЫЕ АРОМАТЫ -->
+    <details class="catalog-item">
+      <summary>
+        <h3>Нишевые ароматы</h3>
+        <p>Особенный характер</p>
+        <span class="arrow">⌄</span>
+      </summary>
+
+      <div class="perfume-grid">
+
+        <div class="perfume-card">
+          <img src="images/niche-1.jpg"
+               alt="Нишевый аромат 1" loading="lazy">
+          <h4>Название аромата 1</h4>
+        </div>
+
+        <div class="perfume-card">
+          <img src="images/niche-2.jpg"
+               alt="Нишевый аромат 2" loading="lazy">
+          <h4>Название аромата 2</h4>
+        </div>
+
+      </div>
+    </details>
 
   </div>
 
@@ -260,7 +421,7 @@ a {
   <p>Выбери свой аромат</p>
 
   <a href="https://www.instagram.com/elvar_parfum_kz/"
-     target="_blank">
+     target="_blank" rel="noopener noreferrer">
     <button>ЗАКАЗАТЬ В INSTAGRAM</button>
   </a>
 
